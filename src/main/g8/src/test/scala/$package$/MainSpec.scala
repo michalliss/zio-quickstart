@@ -16,7 +16,7 @@ object MainSpec extends JUnitRunnableSpec:
       for {
         ds <- ZIO.service[DataSource]
         pg <- ZIO.service[PostgreSQLContainer]
-        _  <- Console.printLine(s"Container ip: ${pg.containerIpAddress}").orDie
+        _  <- Console.printLine(s"Container ip: \${pg.containerIpAddress}").orDie
       } yield assertTrue(true)
     }.provide(ZPostgreSQLContainer.Settings.default, ZPostgreSQLContainer.live)
   )
