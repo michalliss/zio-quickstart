@@ -9,7 +9,7 @@ object Main extends ZIOAppDefault:
     for
       service <- ZIO.service[IEmptyService]
       result  <- service.doWork()
-      _       <- Console.printLine(s"Result: ${result}")
+      _       <- Console.printLine(s"Result: \${result}")
     yield ()
 
   def run = app.provide(IEmptyService.live)
