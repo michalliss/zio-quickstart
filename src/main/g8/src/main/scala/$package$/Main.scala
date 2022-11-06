@@ -1,15 +1,15 @@
 package $package$
 
-import zio.{ZIOAppDefault, Task, Console}
-import zio.Console.ConsoleLive
+import zio._
+import main.services.IEmptyService
 
 object Main extends ZIOAppDefault:
-
-  def app(c: Console): Task[Unit] =
+  
+  lazy val app =
     for
-      _    <- c.printLine("What is your name?")
-      name <- c.readLine
-      _    <- c.printLine(s"Hello \$name!")
+      service <- ZIO.service[IEmptyService]
+      result  <- service.doWork()
+      _       <- Console.printLine(s"Result: $result")
     yield ()
 
-  def run = app(ConsoleLive)
+  def run = app.provide(IEmptyService.live)

@@ -1,8 +1,6 @@
 package $package$
 
 import zio._
-import zio.test.Assertion.equalTo
-import zio.test.junit.JUnitRunnableSpec
 import zio.test._
 import io.github.scottweaver.zio.testcontainers.postgres.ZPostgreSQLContainer
 import javax.sql.DataSource
