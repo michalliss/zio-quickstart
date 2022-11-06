@@ -1,7 +1,7 @@
 package $package$
 
 import zio._
-import main.services.IEmptyService
+import $package$.services.IEmptyService
 
 object Main extends ZIOAppDefault:
 

@@ -1,4 +1,4 @@
-package $package$
+package $package$.services
 
 import zio._
 
